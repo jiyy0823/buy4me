@@ -1,0 +1,18 @@
+---
+spring:
+  profiles: dev
+
+server:
+  port: 8080
+
+logging:
+  config: src/main/resources/config/dev/logback.xml
+
+---
+spring:
+  profiles: test
+server:
+  port: 8081
+logging:
+  config: src/main/resources/config/test/logback.xml
+

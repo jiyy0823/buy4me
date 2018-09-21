@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="logPath" value="/Users/yij00/user1/log/buy4me/"/>
+    <property name="logFile" value="debug.log"/>
+    <property name="charset" value="UTF-8"/>
+    <property name="pattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%p][%thread][%F:%L] %m%n"/>
+
+   <appender name="rollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+       <File>${logPath}${logFile}</File>
+       <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+           <fileNamePattern>${logPath}${logFile}.%d{yyyy-mm-dd}</fileNamePattern>
+       </rollingPolicy>
+       <encoder>
+            <charset>${charset}</charset>
+            <Pattern>${pattern}</Pattern>
+       </encoder>
+   </appender>
+
+    <root level="info">
+        <appender-ref ref="rollingFileAppender" />
+    </root>
+</configuration>
